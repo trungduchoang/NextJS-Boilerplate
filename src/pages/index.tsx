@@ -1,3 +1,4 @@
-export default function Home() {
-  return <div>HomePage</div>;
-}
+import Homepage, { getStaticProps } from "./[locale]/index";
+
+export default Homepage;
+export { getStaticProps };

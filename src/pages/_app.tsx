@@ -1,11 +1,12 @@
 // libs
 import type { AppProps } from "next/app";
+import { appWithTranslation } from "next-i18next";
 // components
 import { AppEffects } from "@/components/effects/AppEffects";
 // others
 import "@/styles/index.css";
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <AppEffects />
@@ -13,3 +14,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   );
 }
+
+export default appWithTranslation(App);

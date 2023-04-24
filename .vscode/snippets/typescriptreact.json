@@ -1,0 +1,9 @@
+{
+  "Example for adding new snippets": {
+    "prefix": "_example",
+    "body": [
+      "// Example"
+    ],
+    "description": "Example for adding new snippets"
+  }
+}
