@@ -20,7 +20,7 @@ type PROPS =
     } & TReactSvg);
 /**
  * Svg
- * @description Collections of SVG files from feather icons store in /public/icons
+ * @description Collections of SVG files from feather icons store in /public/svgs
  * @description Render SVG files by react-svg
  * @see https://feathericons.com/
  * @see https://github.com/tanem/react-svg
@@ -28,7 +28,7 @@ type PROPS =
 export default function Svg({ type, className, ...props }: PROPS) {
   return (
     <ReactSVG
-      src={`/icons/${type}.svg`}
+      src={`/svgs/${type}.svg`}
       loading={Spinner}
       wrapper="span"
       className={clsx(classes.root, className)}
