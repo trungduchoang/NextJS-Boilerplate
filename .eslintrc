@@ -123,8 +123,10 @@
   },
   "overrides": [
     {
-      "files": ["src/utils/others/pick/index.ts"],
+      "files": ["src/redux/*/*.ts"],
       "rules": {
+        // createSlice use the Immer library so "mutating" JS syntax is allowed
+        // @see https://redux.js.org/introduction/why-rtk-is-redux-today#what-does-redux-toolkit-do
         "no-param-reassign": 0
       }
     }
