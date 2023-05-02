@@ -2,12 +2,10 @@
 import {
   Control,
   FieldPath,
-  FieldPathValue,
   FieldValues,
   Path,
   PathValue,
   SetValueConfig,
-  UnpackNestedValue,
   useFormContext,
 } from "react-hook-form";
 // types
@@ -18,16 +16,13 @@ import { notify } from "@/utils/notify";
 
 type TPages = keyof TAllFormValues;
 type TFieldName<TFieldValues extends FieldValues> = FieldPath<TFieldValues>;
-type TFieldValue<TFieldValues extends FieldValues> = UnpackNestedValue<
-  FieldPathValue<TFieldValues, TFieldName<TFieldValues>>
+type TFieldValue<TPageName extends TPages> = PathValue<
+  TAllFormValues[TPageName],
+  Path<TAllFormValues[TPageName]>
 >;
-type TSetValues<TFieldValues extends FieldValues> = {
-  [key in TFieldName<TFieldValues>]?: TFieldValue<TFieldValues>;
+type TSetValues<TFieldValues extends FieldValues, TPageName extends TPages> = {
+  [key in TFieldName<TFieldValues>]?: TFieldValue<TPageName>;
 };
-type TEntryItem<TFieldValues extends FieldValues> = [
-  Path<TFieldValues>,
-  UnpackNestedValue<PathValue<TFieldValues, Path<TFieldValues>>>,
-];
 
 /**
  * useForm
@@ -73,13 +68,11 @@ export const useForm = <TPageName extends TPages>(
    * })
    */
   function setValues(
-    values: TSetValues<TAllFormValues[TPageName]>,
+    values: TSetValues<TAllFormValues[TPageName], TPageName>,
     options?: SetValueConfig,
   ) {
     Object.entries(values).forEach((item) => {
-      const [name, value] = (item as unknown) as TEntryItem<
-        TAllFormValues[TPageName]
-      >;
+      const [name, value] = item as [Path<TAllFormValues[TPageName]>, any];
       setValue(name, value, options);
     });
   }
@@ -93,9 +86,9 @@ export const useForm = <TPageName extends TPages>(
    * @example
    * setValues("field-name", "value")
    */
-  function setValue(
-    name: Path<TAllFormValues[TPageName]>,
-    value: TFieldValue<TAllFormValues[TPageName]>,
+  function setValue<T extends Path<TAllFormValues[TPageName]>>(
+    name: T,
+    value: PathValue<TAllFormValues[TPageName], T>,
     options?: SetValueConfig,
   ) {
     rhfSetValues(name, value, { shouldValidate: true, ...options });
@@ -141,7 +134,7 @@ export const useForm = <TPageName extends TPages>(
    */
   function register(fieldName: FieldPath<TAllFormValues[TPageName]>) {
     return {
-      control: (control as unknown) as Control,
+      control: control as unknown as Control,
       name: fieldName,
     };
   }
