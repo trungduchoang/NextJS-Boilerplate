@@ -5,5 +5,5 @@ import type { AppState, TReducerNames } from "../../redux/store";
 
 const useSelector: TypedUseSelectorHook<AppState> = _useSelector;
 
-export const useAppSelector = (reducerName: TReducerNames) =>
-  useSelector((state) => state[reducerName]);
+export const useAppSelector = <T extends TReducerNames>(reducerName: T) =>
+  useSelector((state) => state[reducerName] as AppState[T]);
