@@ -19,7 +19,6 @@ export type TStore = ReturnType<typeof configureStore>;
 
 let store: TStore;
 
-// TODO: Move config store to NextJS-BL
 const initializeStore = (preloadedState: TObject) => {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   let _store: TStore = store ?? configureStore(preloadedState);
@@ -58,12 +57,10 @@ export const useInitStore = (initialState: TObject) => {
   return store;
 };
 
+export type TDispatch = typeof store.dispatch;
 export type AppState = ReturnType<typeof store.getState>;
-
 export type TReducerNames = keyof AppState;
-
 export type AppDispatch = typeof store.dispatch;
-
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   AppState,
