@@ -44,6 +44,7 @@ const initializeStore = (preloadedState: TObject) => {
 
 const makePageDataReducer = (initialState: TObject) => {
   const { reducerName, ...restData } = initialState;
+  if (!reducerName) return {};
   return {
     [reducerName]: restData,
   };
