@@ -1,8 +1,10 @@
 export type SvgTypes =
   | "activity"
+  | "user-rounded"
   | "airplay"
   | "alert-circle"
   | "alert-octagon"
+  | "business-card"
   | "alert-triangle"
   | "align-center"
   | "align-justify"

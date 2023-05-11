@@ -14,7 +14,16 @@ type PROPS = { loading?: boolean; label: ReactNode } & Omit<
 
 /**
  * LoadingButton
- * @description Override @mui/material <Button />
+ * @example
+ * <LoadingButton
+ *   type="button"
+ *   onClick={(e) => {
+ *     e.preventDefault();
+ *     executeLogin();
+ *   }}
+ *   className={classes["btn-login"]}
+ *   label={t("login:login")}
+ * />
  * @param loading
  * @param label
  * @params {...rest} @mui/material <Button />

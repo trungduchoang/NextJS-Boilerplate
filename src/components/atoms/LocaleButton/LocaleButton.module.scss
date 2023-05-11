@@ -1,0 +1,45 @@
+.root {
+  width: max-content;
+  .localFlag {
+    margin-right: 8px;
+    svg {
+      fill: #fff;
+      height: 18px;
+      width: auto;
+      margin-bottom: -2px;
+    }
+  }
+  .arrow {
+    margin-bottom: -3px;
+    margin-left: 6px;
+    svg {
+      fill: #fff;
+      width: 17px;
+      height: 17px;
+    }
+  }
+  .locale {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+  }
+}
+.localeMenuItem {
+  margin-right: 10px;
+  margin-top: -2px;
+  span {
+    display: flex;
+  }
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+.japanFlag {
+  @extend .localeMenuItem;
+  border: 1px solid #ddd;
+  svg {
+    height: max-content;
+  }
+}
