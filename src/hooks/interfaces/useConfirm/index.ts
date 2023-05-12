@@ -1,37 +1,54 @@
 // libs
-import { useConfirmDialog } from 'react-mui-confirm';
+import {
+  useConfirm as useConfirmDialog,
+  ConfirmOptions,
+} from "material-ui-confirm";
+// hooks
+import { useTranslation } from "@/hooks/useTranslation";
 
 /**
  * useConfirm
- * @description Show confirm dialog, base on react-mui-confirm
- * @see https://www.npmjs.com/package/react-mui-confirm
- * @see https://codesandbox.io/s/react-material-ui-confirm-examples-19c0i?file=/pages/index.tsx:1380-1393
+ * @description Show confirm dialog, base on material-ui-confirm
+ * @see https://www.npmjs.com/package/material-ui-confirm
  * @returns Callback for show confirm dialog
  * @example
- * const confirm = useConfirm();
+ * const { confirm } = useConfirm();
  * confirm({
  *  title: "",
  *  description: "",
  *  onConfirm: () => {},
- * })
+ * }).then(()=>{}).catch(()=>{})
  * @param title
+ * @param titleProps
  * @param description
- * @param confirmText
- * @param timer
- * @param onConfirm
- * @param confirmButtonText
- * @param cancelButtonText
- * @param rejectOnCancel
+ * @param content
+ * @param contentProps
+ * @param confirmationText
+ * @param cancellationText
  * @param dialogProps
- * @param dialogTitleProps
- * @param dialogContentProps
- * @param dialogContentTextProps
  * @param dialogActionsProps
- * @param confirmTextFieldProps
- * @param timerProgressProps
- * @param confirmButtonProps
- * @param cancelButtonProps
+ * @param confirmationButtonProps
+ * @param cancellationButtonProps
+ * @param allowClose
+ * @param confirmationKeyword
+ * @param confirmationKeywordTextFieldProps
+ * @param hideCancelButton
+ * @param buttonOrder
  */
 export function useConfirm() {
-  return useConfirmDialog();
+  const { t } = useTranslation();
+  const confirm = useConfirmDialog();
+
+  return {
+    confirm: ({
+      confirmationText,
+      cancellationText,
+      ...rest
+    }: ConfirmOptions) =>
+      confirm({
+        confirmationText: confirmationText || t("common:confirm"),
+        cancellationText: cancellationText || t("common:cancel"),
+        ...rest,
+      }),
+  };
 }

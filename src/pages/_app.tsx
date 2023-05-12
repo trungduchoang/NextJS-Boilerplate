@@ -5,6 +5,7 @@ import { appWithTranslation } from "next-i18next";
 import { AppEffects } from "@/components/effects/AppEffects";
 // providers
 import { AuthProvider, ReduxProvider } from "@/providers";
+import { ConfirmProvider } from "material-ui-confirm";
 // others
 import { useInitStore } from "@/redux/store";
 import "@/styles/index.css";
@@ -15,10 +16,12 @@ function App({ Component, pageProps }: AppProps) {
 
   return (
     <ReduxProvider store={store}>
-      <AuthProvider>
-        <AppEffects />
-        <Component {...pageProps} />
-      </AuthProvider>
+      <ConfirmProvider>
+        <AuthProvider>
+          <AppEffects />
+          <Component {...pageProps} />
+        </AuthProvider>
+      </ConfirmProvider>
     </ReduxProvider>
   );
 }

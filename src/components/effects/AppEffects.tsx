@@ -1,4 +1,4 @@
-// hooks, effects
+// libs
 import { CssBaseline } from "@mui/material";
 
 /**
