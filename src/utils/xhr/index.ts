@@ -21,10 +21,10 @@ type TConfigs = Omit<
  */
 export function buildXHR<TResponse, TRequestBody, TRequestParams>(
   configs: TConfigs,
-): (props: {
+): (props?: {
   data?: Expand<TRequestBody>;
   params?: Expand<TRequestParams>;
 }) => Promise<Expand<TResponse>> {
-  return async ({ data, params }) =>
+  return async ({ data, params } = {}) =>
     AXIOS_INSTANCE.request({ ...configs, data, params });
 }

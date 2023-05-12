@@ -1,7 +1,36 @@
 .root {
   &:global(.MuiTextField-root) {
+    padding: 0;
+  }
+
+  & :global(.MuiInputBase-input) {
+    height: 48px;
+    padding: 0 15px;
+  }
+
+  & :global(.MuiOutlinedInput-notchedOutline) {
+    border: none;
+  }
+
+  &:global(.MuiTextField-root) {
     :global(.MuiInputLabel-asterisk) {
       color: red;
     }
+  }
+
+  & :global(.MuiFormControl-root) {
+    position: relative;
+  }
+
+  & :global(.MuiFormHelperText-root) {
+    position: absolute;
+    bottom: -24px;
+    left: 0;
+    font-weight: bold;
+  }
+
+  & :global(.MuiFormHelperText-root) {
+    margin-left: 8px;
+    margin-left: 10px;
   }
 }

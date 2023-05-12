@@ -1,0 +1,47 @@
+.root {
+  visibility: visible;
+
+  .btn {
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+    text-transform: none;
+    cursor: pointer;
+  }
+
+  .btn-register {
+    width: 114px;
+    height: 44px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    margin-right: 16px;
+    background-color: transparent;
+    @extend .btn;
+
+    .icon-register {
+      margin-right: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 16px;
+    }
+  }
+
+  .btn-login {
+    width: 135px;
+    height: 44px;
+    margin-right: 40px;
+    border-radius: 8px;
+    background-color: #09a635;
+    @extend .btn;
+
+    .icon-login {
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 16px;
+    }
+  }
+}

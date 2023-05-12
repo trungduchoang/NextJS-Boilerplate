@@ -1,0 +1,45 @@
+.root {
+  visibility: visible;
+  .userIcon {
+    margin-right: 15px;
+    svg {
+      fill: #fff;
+      width: 32px;
+      height: 32px;
+    }
+  }
+  .arrow {
+    margin-bottom: -3px;
+    margin-left: 6px;
+    svg {
+      fill: #fff;
+      width: 15px;
+      height: 15px;
+    }
+  }
+  .username {
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.accountInfo {
+  span {
+    display: flex;
+  }
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+.logout {
+  span {
+    display: flex;
+  }
+  svg {
+    stroke: #000;
+    width: 20px;
+    height: 20px;
+  }
+}
