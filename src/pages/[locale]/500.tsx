@@ -8,8 +8,9 @@ import { useTranslation } from "@/hooks/useTranslation";
 import { promiseAll } from "@/utils/others/promiseAll";
 import { REVALIDATE_TIME } from "@/configs";
 
-export default function NotFoundPage() {
+export default function InternalErrorPage() {
   const { t } = useTranslation();
+
   return (
     <div
       style={{
@@ -28,9 +29,9 @@ export default function NotFoundPage() {
             margin: 0,
           }}
         >
-          404
+          500
         </h1>
-        <h3 style={{ textAlign: "center", margin: 0 }}>{t("404:title")}</h3>
+        <h3 style={{ textAlign: "center", margin: 0 }}>{t("500:title")}</h3>
       </div>
     </div>
   );
@@ -42,11 +43,11 @@ export const getStaticPaths = () => ({
 });
 
 export const getStaticProps = (context: TPrefetchContext) =>
-  promiseAll<TGetStaticProps>([getI18nProps(context, ["common", "404"])], {
+  promiseAll<TGetStaticProps>([getI18nProps(context, ["common", "500"])], {
     then: ([languagesData]) => ({
       props: {
-        page: "404",
-        title: "Page Not Found",
+        page: "500",
+        title: "Internal Server Error",
         ...languagesData,
       },
       revalidate: REVALIDATE_TIME,

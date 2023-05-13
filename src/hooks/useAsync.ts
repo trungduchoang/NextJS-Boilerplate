@@ -1,35 +1,44 @@
 // libs
+import { AxiosError } from "axios";
 import { useState, useCallback } from "react";
 
-type TResult<TResponse> = {
+type TResult<TResponse, TRequestBody, TRequestParams> = {
   execute: ({
     data,
     params,
     cbSuccess,
-  }: {
-    data?: TObject;
-    params?: TObject;
+    cbError,
+  }?: {
+    data?: TRequestBody;
+    params?: TRequestParams;
     cbSuccess?: (res: TResponse) => void;
-  }) => any;
+    cbError?: (res: AxiosError) => void;
+  }) => void;
   pending: boolean;
-  response: Expand<TResponse>;
-  error: any;
+  response?: Expand<TResponse>;
+  error?: AxiosError;
 };
 /**
  * useAsync
  * @param asyncFunction
+ * @return execute
+ * @return pending
+ * @return response
+ * @return error
  */
-// TODO: Update typescript and copy to ReactJS-Boilerplate
-export function useAsync<TResponse = TObject>(asyncFunction: Function) {
+export function useAsync<TResponse, TRequestBody, TRequestParams>(
+  asyncFunction: Function,
+) {
   const [pending, setPending] = useState(false);
-  const [response, setResponse] = useState<any>({ data: {} });
-  const [error, setError] = useState<any>(null);
+  const [response, setResponse] = useState<Expand<TResponse>>();
+  const [error, setError] = useState<AxiosError>();
 
   const execute = useCallback(
-    ({ data, params, cbSuccess }) => {
+    (props?: any) => {
+      const { data, params, cbSuccess } = props || {};
       setPending(true);
-      setResponse({ data: {} });
-      setError(null);
+      setResponse(undefined);
+      setError(undefined);
 
       return asyncFunction({
         data,
@@ -45,7 +54,12 @@ export function useAsync<TResponse = TObject>(asyncFunction: Function) {
     [asyncFunction],
   );
 
-  const result: TResult<TResponse> = { execute, pending, response, error };
+  const result: TResult<TResponse, TRequestBody, TRequestParams> = {
+    execute,
+    pending,
+    response,
+    error,
+  };
 
   return result;
 }
