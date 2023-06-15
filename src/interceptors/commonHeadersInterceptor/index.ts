@@ -1,10 +1,10 @@
 /* eslint-disable no-param-reassign */
+import { AXIOS_INSTANCE } from "@/configs/Axios";
 import { STORAGE_KEYS } from "@/constants";
 import { cookie } from "@/utils/storage/cookie";
-import axios from "axios";
 
 export function commonHeadersInterceptor(language: string) {
-  axios.interceptors.request.use(
+  AXIOS_INSTANCE.interceptors.request.use(
     (config) => {
       config.headers["Accept-Language"] = language;
       const accessToken = cookie.get(STORAGE_KEYS.ACCESS_TOKEN);

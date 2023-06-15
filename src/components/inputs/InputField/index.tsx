@@ -80,8 +80,10 @@ const InputField = ({
   );
 
   function overridedOnKeyPress(e: KeyboardEvent<HTMLDivElement>) {
-    e.preventDefault();
-    if (shouldFocusNextInput && e.key === "Enter") focusNextInput(name);
+    if (shouldFocusNextInput && e.key === "Enter") {
+      e.preventDefault();
+      focusNextInput(name);
+    }
     if (onPressEnter && e.key === "Enter") {
       onPressEnter(e);
     }
@@ -96,7 +98,7 @@ const InputField = ({
       <>
         {fieldErrorMsg && (
           <>
-            <div
+            <span
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -115,7 +117,7 @@ const InputField = ({
               />
               <span style={{ color: "#f71010" }}>{fieldErrorMsg}</span>
               <br />
-            </div>
+            </span>
           </>
         )}
         {helperText}

@@ -38,6 +38,7 @@
         "functions": false
       }
     ],
+    "no-plusplus": 0,
     "no-use-before-define": [
       1,
       {
@@ -110,12 +111,16 @@
       {
         "paths": [
           {
-            "name": "@mui/*/*/*",
-            "message": "Do not use imports from MUI subdirectories. Use the top-level import instead."
-          },
-          {
             "name": "react-i18next",
             "message": "Please use next-i18next import instead to avoid hydration errors."
+          },
+          {
+            "name": "next/router",
+            "message": "Please import from '@/hooks/useRouter' instead of 'next/router'"
+          },
+          {
+            "name": "next/link",
+            "message": "Please import from '@/components/atoms/Link' instead of 'next/link'"
           }
         ]
       }
@@ -123,11 +128,17 @@
   },
   "overrides": [
     {
-      "files": ["src/redux/*/*.ts"],
+      "files": ["src/redux/**"],
       "rules": {
         // createSlice use the Immer library so "mutating" JS syntax is allowed
         // @see https://redux.js.org/introduction/why-rtk-is-redux-today#what-does-redux-toolkit-do
         "no-param-reassign": 0
+      }
+    },
+    {
+      "files": ["src/hooks/useRouter.ts"],
+      "rules": {
+        "no-restricted-imports": 0
       }
     }
   ]

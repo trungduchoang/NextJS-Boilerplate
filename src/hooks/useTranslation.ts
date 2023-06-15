@@ -1,6 +1,4 @@
 // libs
-// eslint-disable-next-line no-restricted-imports
-import { UseTranslationResponse } from "react-i18next";
 import { useTranslation as _useTranslation } from "next-i18next";
 
 export type TFunction = (key: string, params?: TObject) => string;
@@ -13,9 +11,12 @@ export type TFunction = (key: string, params?: TObject) => string;
  * {t("home:export-farm-qt")}
  */
 export const useTranslation = () => {
-  const props = _useTranslation();
-  return props as Omit<
-    UseTranslationResponse<"translation", undefined>,
-    "t"
-  > & { t: TFunction };
+  const { i18n, t, ready } = _useTranslation();
+
+  return { t, currentLanguage: i18n.language, ready, i18n } as {
+    t: TFunction;
+    currentLanguage: TSupportedLanguages;
+    ready: boolean;
+    i18n: typeof i18n;
+  };
 };

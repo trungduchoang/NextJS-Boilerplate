@@ -3,12 +3,7 @@ import { AxiosError } from "axios";
 import { useState, useCallback } from "react";
 
 type TResult<TResponse, TRequestBody, TRequestParams> = {
-  execute: ({
-    data,
-    params,
-    cbSuccess,
-    cbError,
-  }?: {
+  execute: (props?: {
     data?: TRequestBody;
     params?: TRequestParams;
     cbSuccess?: (res: TResponse) => void;
@@ -35,7 +30,12 @@ export function useAsync<TResponse, TRequestBody, TRequestParams>(
 
   const execute = useCallback(
     (props?: any) => {
-      const { data, params, cbSuccess } = props || {};
+      const {
+        data,
+        params,
+        cbSuccess = noop,
+        cbError = defaultCbError,
+      } = props || {};
       setPending(true);
       setResponse(undefined);
       setError(undefined);
@@ -46,9 +46,12 @@ export function useAsync<TResponse, TRequestBody, TRequestParams>(
       })
         .then((response: any) => {
           setResponse(response);
-          if (cbSuccess) cbSuccess(response);
+          cbSuccess(response);
         })
-        .catch((error: any) => setError(error))
+        .catch((error: AxiosError) => {
+          setError(error);
+          cbError(error);
+        })
         .finally(() => setPending(false));
     },
     [asyncFunction],
@@ -62,4 +65,10 @@ export function useAsync<TResponse, TRequestBody, TRequestParams>(
   };
 
   return result;
+}
+
+function noop() {}
+function defaultCbError(e: AxiosError) {
+  // eslint-disable-next-line no-console
+  console.log(e);
 }

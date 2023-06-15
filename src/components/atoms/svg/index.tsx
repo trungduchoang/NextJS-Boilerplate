@@ -29,6 +29,7 @@ type PROPS =
  * @see https://github.com/tanem/react-svg
  * @example <Svg src="/svgs/menu-mui.svg" />
  * @example <Svg type="menu" />
+ * @FIXME: loading in ReactSVG sometimes give error (loading always show) on production
  */
 export default function Svg({
   type,
@@ -39,7 +40,6 @@ export default function Svg({
   return (
     <ReactSVG
       src={src || `/svgs/${type}.svg`}
-      loading={Spinner}
       wrapper="span"
       className={clsx(classes.root, className)}
       {...props}

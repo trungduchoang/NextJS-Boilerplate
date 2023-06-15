@@ -11,7 +11,7 @@ import { MouseEvent, useState } from "react";
 import Svg from "@/components/atoms/svg";
 // hooks
 import { useTranslation } from "@/hooks/useTranslation";
-import { useRouter } from "next/router";
+import { useRouter } from "@/hooks/useRouter";
 // others
 import { i18n as i18nConfigs } from "../../../../next-i18next.config";
 import classes from "./LocaleButton.module.scss";

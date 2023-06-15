@@ -6,6 +6,10 @@ import {
 // hooks
 import { useTranslation } from "@/hooks/useTranslation";
 
+type TConfirmProps = {
+  onConfirm?: () => void;
+  onCancel?: () => void;
+} & ConfirmOptions;
 /**
  * useConfirm
  * @description Show confirm dialog, base on material-ui-confirm
@@ -16,9 +20,12 @@ import { useTranslation } from "@/hooks/useTranslation";
  * confirm({
  *  title: "",
  *  description: "",
- *  onConfirm: () => {},
- * }).then(()=>{}).catch(()=>{})
+ *  onConfirm: ()=>{},
+ *  onCancel: ()=>{},
+ * });
  * @param title
+ * @param onConfirm
+ * @param onCancel
  * @param titleProps
  * @param description
  * @param content
@@ -41,14 +48,18 @@ export function useConfirm() {
 
   return {
     confirm: ({
-      confirmationText,
-      cancellationText,
+      confirmationText = t("common:confirm"),
+      cancellationText = t("common:cancel"),
+      onConfirm = () => {},
+      onCancel = () => {},
       ...rest
-    }: ConfirmOptions) =>
+    }: TConfirmProps) =>
       confirm({
-        confirmationText: confirmationText || t("common:confirm"),
-        cancellationText: cancellationText || t("common:cancel"),
+        confirmationText,
+        cancellationText,
         ...rest,
-      }),
+      })
+        .then(onConfirm)
+        .catch(onCancel),
   };
 }
