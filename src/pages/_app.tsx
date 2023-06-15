@@ -1,6 +1,7 @@
 // libs
 import type { AppProps } from "next/app";
 import { appWithTranslation } from "next-i18next";
+import { StyledEngineProvider } from "@mui/material/styles";
 // components
 import { AppEffects } from "@/components/effects/AppEffects";
 // providers
@@ -18,8 +19,10 @@ function App({ Component, pageProps }: AppProps) {
     <ReduxProvider store={store}>
       <ConfirmProvider>
         <AuthProvider>
-          <AppEffects />
-          <Component {...pageProps} />
+          <StyledEngineProvider>
+            <AppEffects />
+            <Component {...pageProps} />
+          </StyledEngineProvider>
         </AuthProvider>
       </ConfirmProvider>
     </ReduxProvider>
