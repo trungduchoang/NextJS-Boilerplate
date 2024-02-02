@@ -1,12 +1,16 @@
 // libs
 import { TypedUseSelectorHook, useSelector as _useSelector } from "react-redux";
 // others
-import type { AppState, TReducerNames } from "../../redux/store";
+import type { AppState, TReducerNames } from "@/redux/store";
 
 const useSelector: TypedUseSelectorHook<AppState> = _useSelector;
 
-export const useAppSelector = <T extends TReducerNames>(reducerName: T) =>
+export const useAppSelector = <T extends TReducerNames>(
+  reducerName: T,
+  compareFn?: (prevProps: AppState[T], nextProps: AppState[T]) => boolean
+) =>
   useSelector(
     (state) => state[reducerName] as AppState[T],
-    (prev, next) => prev === next
+    // Default using shallow compare for reducing re-render
+    (compareFn as any) || ((prev, next) => prev === next)
   );

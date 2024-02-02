@@ -61,17 +61,21 @@ function calculatePassedTime(
 } {
   if (milisecondDiff < 60000) return { n: -1, unit: "second" };
   if (milisecondDiff < 120000) return { n: 1, unit: "minute" };
-  if (milisecondDiff < 3600000)
+  if (milisecondDiff < 3600000) {
     return { n: Math.floor(milisecondDiff / 60000), unit: "minute" };
+  }
   if (milisecondDiff < 7200000) return { n: 1, unit: "hour" };
-  if (milisecondDiff < 86400000)
+  if (milisecondDiff < 86400000) {
     return { n: Math.floor(milisecondDiff / 3600000), unit: "hour" };
+  }
   if (milisecondDiff < 172800000) return { n: 1, unit: "day" };
-  if (milisecondDiff < 2629800000)
+  if (milisecondDiff < 2629800000) {
     return { n: Math.floor(milisecondDiff / 86400000), unit: "day" };
+  }
   if (milisecondDiff < 5259600000) return { n: 1, unit: "month" };
-  if (milisecondDiff < 31557600000)
+  if (milisecondDiff < 31557600000) {
     return { n: Math.floor(milisecondDiff / 2629800000), unit: "month" };
+  }
   if (milisecondDiff < 63115200000) return { n: 1, unit: "year" };
   return { n: Math.floor(milisecondDiff / 31557600000), unit: "year" };
 }

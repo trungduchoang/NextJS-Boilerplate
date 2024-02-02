@@ -70,7 +70,7 @@ export type TAsyncActionConfigs<
         TRequestBody,
         TRequestQuery,
         TUrlParams
-      >
+      >,
     ) => Promise<void>,
     props: TXhrReturn<TResponse>,
   ];

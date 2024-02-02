@@ -146,7 +146,7 @@ function Content({
   icon?: "ErrorIcon" | "InfoIcon" | "SuccessIcon" | "WarningIcon" | "Spinner";
 }) {
   let displayContent: ReactNode = content;
-  if (typeof content === "string")
+  if (typeof content === "string") {
     displayContent = (
       <div>
         {content.split("\n").map((item, i) => (
@@ -154,6 +154,7 @@ function Content({
         ))}
       </div>
     );
+  }
   return (
     <div
       style={{
@@ -215,8 +216,7 @@ function InfoIcon() {
       <path
         color="#1890ff"
         d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-      >
-      </path>
+      />
     </svg>
   );
 }
@@ -235,8 +235,7 @@ export function SuccessIcon() {
       <path
         color="#52C444"
         d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
-      >
-      </path>
+      />
     </svg>
   );
 }
@@ -255,8 +254,7 @@ function WarningIcon() {
       <path
         color="#faad14"
         d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-      >
-      </path>
+      />
     </svg>
   );
 }

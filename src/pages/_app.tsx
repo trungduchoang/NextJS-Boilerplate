@@ -1,13 +1,15 @@
 // libs
-import type { AppProps } from "next/app";
+import Head from "next/head";
 import { appWithTranslation } from "next-i18next";
-import { StyledEngineProvider } from "@mui/material/styles";
+import { StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
+import type { AppProps } from "next/app";
 // components
-import { AppEffects } from "@/components/effects/AppEffects";
+import { AppEffects } from "@/effects/AppEffects";
+import { RecursiveRender } from "@/utils/others";
 // providers
 import { AuthProvider, ReduxProvider } from "@/providers";
-import { ConfirmProvider } from "material-ui-confirm";
 // others
+import { theme } from "@/themes";
 import { useInitStore } from "@/redux/store";
 import "@/styles/index.css";
 
@@ -16,16 +18,23 @@ function App({ Component, pageProps }: AppProps) {
   const store = useInitStore(pageProps.pageData || {});
 
   return (
-    <ReduxProvider store={store}>
-      <ConfirmProvider>
-        <AuthProvider>
-          <StyledEngineProvider>
-            <AppEffects />
-            <Component {...pageProps} />
-          </StyledEngineProvider>
-        </AuthProvider>
-      </ConfirmProvider>
-    </ReduxProvider>
+    <>
+      <Head>
+        <title>Rx-Next</title>
+      </Head>
+      <RecursiveRender
+        structure={[
+          [ThemeProvider, { theme }],
+          [ReduxProvider, { store }],
+          [StyledEngineProvider, {}],
+          [ReduxProvider, { store }],
+          [AuthProvider, {}],
+        ]}
+      >
+        <AppEffects />
+        <Component {...pageProps} />
+      </RecursiveRender>
+    </>
   );
 }
 

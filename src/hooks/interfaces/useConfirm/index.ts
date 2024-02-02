@@ -1,65 +1,37 @@
 // libs
-import {
-  useConfirm as useConfirmDialog,
-  ConfirmOptions,
-} from "material-ui-confirm";
-// hooks
-import { useTranslation } from "@/hooks/useTranslation";
+import { useConfirmDialog } from "react-mui-confirm";
 
-type TConfirmProps = {
-  onConfirm?: () => void;
-  onCancel?: () => void;
-} & ConfirmOptions;
 /**
  * useConfirm
- * @description Show confirm dialog, base on material-ui-confirm
- * @see https://www.npmjs.com/package/material-ui-confirm
+ * @description Show confirm dialog, base on react-mui-confirm
+ * @see https://www.npmjs.com/package/react-mui-confirm
+ * @see https://codesandbox.io/s/react-material-ui-confirm-examples-19c0i?file=/pages/index.tsx:1380-1393
  * @returns Callback for show confirm dialog
  * @example
- * const { confirm } = useConfirm();
+ * const confirm = useConfirm();
  * confirm({
  *  title: "",
  *  description: "",
- *  onConfirm: ()=>{},
- *  onCancel: ()=>{},
- * });
+ *  onConfirm: () => {},
+ * })
  * @param title
- * @param onConfirm
- * @param onCancel
- * @param titleProps
  * @param description
- * @param content
- * @param contentProps
- * @param confirmationText
- * @param cancellationText
+ * @param confirmText
+ * @param timer
+ * @param onConfirm
+ * @param confirmButtonText
+ * @param cancelButtonText
+ * @param rejectOnCancel
  * @param dialogProps
+ * @param dialogTitleProps
+ * @param dialogContentProps
+ * @param dialogContentTextProps
  * @param dialogActionsProps
- * @param confirmationButtonProps
- * @param cancellationButtonProps
- * @param allowClose
- * @param confirmationKeyword
- * @param confirmationKeywordTextFieldProps
- * @param hideCancelButton
- * @param buttonOrder
+ * @param confirmTextFieldProps
+ * @param timerProgressProps
+ * @param confirmButtonProps
+ * @param cancelButtonProps
  */
 export function useConfirm() {
-  const { t } = useTranslation();
-  const confirm = useConfirmDialog();
-
-  return {
-    confirm: ({
-      confirmationText = t("common:confirm"),
-      cancellationText = t("common:cancel"),
-      onConfirm = () => {},
-      onCancel = () => {},
-      ...rest
-    }: TConfirmProps) =>
-      confirm({
-        confirmationText,
-        cancellationText,
-        ...rest,
-      })
-        .then(onConfirm)
-        .catch(onCancel),
-  };
+  return useConfirmDialog();
 }

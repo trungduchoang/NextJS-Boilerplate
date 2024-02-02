@@ -1,4 +1,4 @@
-import exampleReducer from "./Home/example";
+import exampleReducer from "./Home/exampleReducer/reducer";
 
 const reducer = {
   exampleReducer,

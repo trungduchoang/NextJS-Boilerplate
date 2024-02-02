@@ -1,12 +1,17 @@
 // libs
 import { AxiosRequestConfig, Method } from "axios";
 // others
-import { AXIOS_INSTANCE } from "@/configs/Axios";
+import { AXIOS_INSTANCE } from "@/https/AxiosInstance";
 
-type TConfigs = Omit<
+type TUrlBuilder<TUrlParams> = (props: TUrlParams) => string;
+type TConfigs<TUrlParams> = Omit<
   AxiosRequestConfig,
   "data" | "params" | "url" | "method"
-> & { url: string; method: Method };
+> & {
+  url: string | TUrlBuilder<TUrlParams>;
+  method: Method;
+  urlParams?: TUrlParams;
+};
 /**
  * buildXHR
  * @example
@@ -19,12 +24,33 @@ type TConfigs = Omit<
  *   method: "POST",
  * });
  */
-export function buildXHR<TResponse, TRequestBody, TRequestParams>(
-  configs: TConfigs,
+export function buildXHR<
+  TResponse,
+  TRequestBody,
+  TRequestParams,
+  TUrlParams = {}, // TODO: Make TUrlParams cleaner and done in rx
+>(
+  configs: TConfigs<TUrlParams>,
 ): (props?: {
   data?: Expand<TRequestBody>;
   params?: Expand<TRequestParams>;
+  urlParams?: Expand<TUrlParams>;
 }) => Promise<Expand<TResponse>> {
-  return async ({ data, params } = {}) =>
-    AXIOS_INSTANCE.request({ ...configs, data, params });
+  const { url, ...restConfigs } = configs;
+
+  return async ({ data, params, urlParams } = {}) =>
+    AXIOS_INSTANCE.request({
+      ...restConfigs,
+      url: buildUrl(url, urlParams),
+      data,
+      params,
+    }).then((res) => res.data);
+}
+
+function buildUrl<TUrlParams>(
+  url: string | TUrlBuilder<TUrlParams>,
+  urlParams?: Expand<TUrlParams>,
+) {
+  if (typeof url === "string") return url;
+  return url(urlParams as TUrlParams);
 }

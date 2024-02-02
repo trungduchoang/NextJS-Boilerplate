@@ -6,7 +6,7 @@
  */
 export const pick = <T extends TObject, K extends Extract<keyof T, string>>(
   obj: T,
-  keys: readonly K[]
+  keys: readonly K[],
 ): Partial<Pick<T, K>> =>
   keys.reduce<Partial<Pick<T, K>>>(
     (result: Partial<Pick<T, K>>, key: K): Partial<Pick<T, K>> => {
@@ -18,5 +18,5 @@ export const pick = <T extends TObject, K extends Extract<keyof T, string>>(
 
       return result;
     },
-    {}
+    {},
   );

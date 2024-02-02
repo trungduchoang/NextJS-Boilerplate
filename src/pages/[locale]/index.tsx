@@ -1,12 +1,11 @@
 // libs
-import { useTranslation } from "next-i18next";
 import { GetStaticPropsContext } from "next";
 import { getI18nPaths, getI18nProps } from "@/lib/getStatic";
+// views
+import HomePage from "@/views/Home";
 
 export default function Home() {
-  const { t } = useTranslation();
-
-  return <h1>{t("home:title")}</h1>;
+  return <HomePage />;
 }
 
 export const getStaticPaths = () => ({

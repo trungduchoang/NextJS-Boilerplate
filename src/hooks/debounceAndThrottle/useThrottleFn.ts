@@ -8,7 +8,10 @@ import { useRef } from "react";
  * @example
  * const [throttledFn] = useThrottleFn(() => { console.log("example"); })
  */
-export function useThrottleFn(fn: (...args: any) => void, ms = 200) {
+export function useThrottleFn<TArguments extends any[] = any[]>(
+  fn: (...args: TArguments) => void,
+  ms = 200,
+) {
   const timer = useRef<string>("");
   const execute = (...args: any) => {
     if (!timer.current) {
