@@ -7,10 +7,10 @@ const useSelector: TypedUseSelectorHook<AppState> = _useSelector;
 
 export const useAppSelector = <T extends TReducerNames>(
   reducerName: T,
-  compareFn?: (prevProps: AppState[T], nextProps: AppState[T]) => boolean
+  compareFn?: (prevProps: AppState[T], nextProps: AppState[T]) => boolean,
 ) =>
   useSelector(
     (state) => state[reducerName] as AppState[T],
     // Default using shallow compare for reducing re-render
-    (compareFn as any) || ((prev, next) => prev === next)
+    (compareFn as any) || ((prev, next) => prev === next),
   );

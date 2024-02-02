@@ -6,9 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "yarn lint:ts && yarn lint:style",
-    "lint:ts": "eslint --cache --fix --ext .ts,.tsx ./src",
-    "lint:style": "stylelint --fix \"src/**/*.scss\""
+    "lint": "yarn lint:es && yarn lint:style",
+    "lint:es": "eslint --cache --fix --ext .ts,.tsx ./src",
+    "lint:style": "stylelint --fix \"src/**/*.scss\"",
+    "lint:ts": "tsc --noEmit"
   },
   "dependencies": {
     "@emotion/react": "11.10.6",

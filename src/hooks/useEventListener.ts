@@ -10,7 +10,7 @@ import { useRef, useEffect, RefObject } from "react";
 export function useEventListener<T extends HTMLElement = HTMLDivElement>(
   eventName: string,
   handler: Function,
-  element?: RefObject<T>
+  element?: RefObject<T>,
 ) {
   // Create a ref that stores handler
   const savedHandler = useRef<Function>();
