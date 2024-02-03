@@ -76,7 +76,7 @@
     "stylelint-prettier": "1.2.0"
   },
   "engines": {
-    "node": "18.17.0"
+    "node": "^18.17.0"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
