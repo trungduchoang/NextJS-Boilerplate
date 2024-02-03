@@ -12,7 +12,6 @@ import {
 import { TAllFormValues } from "@/react-hook-form/types";
 // others
 import { focusErrorElement } from "@/utils/others";
-import { notify } from "@/utils/notify";
 
 type TPages = keyof TAllFormValues;
 type TFieldName<TFieldValues extends FieldValues> = FieldPath<TFieldValues>;
@@ -106,9 +105,7 @@ export const useForm = <TPageName extends TPages>(
    */
   async function validateForm({
     onPassed,
-    onFail = () => {
-      notify.error("Form validation fail!");
-    },
+    onFail = () => {},
     shouldFocus = true,
   }: {
     onPassed: () => void;

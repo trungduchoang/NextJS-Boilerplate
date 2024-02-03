@@ -91,28 +91,6 @@ export default function LocaleButton() {
           </ListItemIcon>
           <ListItemText>English</ListItemText>
         </MenuItem>
-        <MenuItem
-          onClick={() => {
-            changeLanguage("cn");
-            handleClose();
-          }}
-        >
-          <ListItemIcon style={{ minWidth: 26 }}>
-            <Svg src="/flags/china.svg" className={classes.localeMenuItem} />
-          </ListItemIcon>
-          <ListItemText>中國人</ListItemText>
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            changeLanguage("ja");
-            handleClose();
-          }}
-        >
-          <ListItemIcon style={{ minWidth: 26 }}>
-            <Svg src="/flags/japan.svg" className={classes.japanFlag} />
-          </ListItemIcon>
-          <ListItemText>日本</ListItemText>
-        </MenuItem>
       </Menu>
     </div>
   );
