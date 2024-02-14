@@ -26,6 +26,7 @@
       }
     ],
     "import/extensions": 0,
+    "no-continue": 0, // "continue" MUST used at the start of a block, as first checks made
     "react/react-in-jsx-scope": 0,
     "max-len": 0,
     "react-hooks/exhaustive-deps": 0,

@@ -8,7 +8,6 @@ export type TFunction = (key: string, params?: TObject) => string;
  * Usages:
  * {t("common:login")} // common, home is name of files in /public/locales/[language]/name.json
  * {t("home:title")}
- * {t("home:export-farm-qt")}
  */
 export const useTranslation = () => {
   const { i18n, t, ready } = _useTranslation();
