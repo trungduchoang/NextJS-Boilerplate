@@ -25,6 +25,7 @@
       }
     ],
     "font-family-no-missing-generic-family-keyword": null,
-    "no-duplicate-selectors": null
+    "no-duplicate-selectors": null,
+    "selector-class-pattern": null
   }
 }
