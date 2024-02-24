@@ -9,7 +9,7 @@
     "lint:ts": "tsc --noEmit",
     "fix:all": "yarn fix:es && yarn fix:style",
     "fix:es": "eslint --cache --fix --ext .ts,.tsx ./src",
-    "fix:style": "stylelint --fix \"src/**/*.scss\"",
+    "fix:style": "stylelint --fix \"src/**/*.{scss,css}\"",
     "prepare": "husky"
   },
   "dependencies": {

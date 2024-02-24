@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+// libs
 import { useRef } from "react";
 
 /**
@@ -8,12 +8,12 @@ import { useRef } from "react";
  * @example
  * const [throttledFn] = useThrottleFn(() => { console.log("example"); })
  */
-export function useThrottleFn<TArguments extends any[] = any[]>(
+export function useThrottleFn<TArguments extends unknown[]>(
   fn: (...args: TArguments) => void,
   ms = 200,
 ) {
   const timer = useRef<string>("");
-  const execute = (...args: any) => {
+  const execute = (...args: TArguments) => {
     if (!timer.current) {
       fn(...args);
       timer.current = "timing";
