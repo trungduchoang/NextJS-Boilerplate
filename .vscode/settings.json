@@ -2,8 +2,18 @@
   "todohighlight.keywords": [
     {
       "text": " Ref:",
-      "color": "#eee",
+      "color": "#444",
       "backgroundColor": "#DF7F2F"
+    },
+    {
+      "text": "@todo",
+      "color": "#FFD700",
+      "backgroundColor": "#41A317"
+    },
+    {
+      "text": "@improvement",
+      "color": "#444444",
+      "backgroundColor": "#EFFD5F"
     }
   ],
   "editor.tabSize": 2,
