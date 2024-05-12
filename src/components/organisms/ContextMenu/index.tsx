@@ -5,8 +5,6 @@ import { MouseEvent, ReactNode, useState, createContext } from "react";
 import { nullPosition } from "./dataSources";
 import classes from "./ContextMenu.module.scss";
 
-export { ContextMenuItem, ContextMenu };
-
 type Position = {
   mouseX: null | number;
   mouseY: null | number;
@@ -22,17 +20,26 @@ const PositionContext = createContext<{
 
 /**
  * ContextMenu
+ * @example
+ *  <ContextMenu innerComponent={<div>Can be right click element</div>}>
+ *    <ContextMenuItem
+ *      onClick={() => {
+ *        console.log("on ContextMenu item click");
+ *      }}
+ *    >
+ *      Menu Item label
+ *    </ContextMenuItem>
+ *  </ContextMenu>
  */
-function ContextMenu({
+export function ContextMenu({
   innerComponent,
   children,
 }: {
   innerComponent: ReactNode | ReactNode[];
   children: ReactNode | ReactNode[];
 }) {
-  const [pointerPosition, setPointerPosition] = useState<Position>(
-    nullPosition,
-  );
+  const [pointerPosition, setPointerPosition] =
+    useState<Position>(nullPosition);
 
   const openContextMenu = (event: MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
@@ -71,7 +78,7 @@ function ContextMenu({
   );
 }
 
-function ContextMenuItem({
+export function ContextMenuItem({
   children,
   onClick,
 }: {
