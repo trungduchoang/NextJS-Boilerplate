@@ -6,7 +6,7 @@ import { ForwardedRef, forwardRef, ReactNode } from "react";
 import classes from "./CheckboxWithLabel.module.scss";
 
 export type TCheckboxWithLabelProps = {
-  id: string;
+  id?: string;
   label?: ReactNode;
   wrapperClass?: string;
 } & CheckboxProps;
