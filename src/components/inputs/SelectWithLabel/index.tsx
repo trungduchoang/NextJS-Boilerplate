@@ -21,7 +21,7 @@ export type TSelectWithLabelProps = {
 /**
  * SelectWithLabel
  * @example
- * <SelectWithLabel label="Label">
+ * <SelectWithLabel label="Label" value="" onChange={e => console.log(e.target.value)}>
  *  <MenuItem value="1">Item 1</MenuItem>
  * </SelectWithLabel>
  * @notes <SelectWithLabel {...register("name")}> will NOT working properly due to Mui-Select is controlled component
