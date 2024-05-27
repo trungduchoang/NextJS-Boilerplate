@@ -23,6 +23,16 @@ type TConfigs<TUrlParams> = Omit<
  *   url: "/api-url",
  *   method: "POST",
  * });
+ * @example
+ * const requestRefreshAuth = buildXHR<
+ *   TResponse,
+ *   TRequestBody,
+ *   TRequestParams
+ * >({
+ *   url: ({ paramA, paramB }) => `/url/${paramA}/url/${paramB}`,
+ *   method: "POST",
+ *   urlParams: { paramA: 1, paramB: 2},
+ * });
  */
 export function buildXHR<
   TResponse,
