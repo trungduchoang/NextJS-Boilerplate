@@ -12,7 +12,7 @@ import classes from "./Link.module.scss";
  * @param query
  * @param children
  * @params ...@mui/material :Link params
- * @example
+ * @example <Link href="/designs-list">Label</Link>
  */
 export default function Link({
   href,
