@@ -1,7 +1,5 @@
-// libs
 import { Menu, MenuItem } from "@mui/material";
 import { MouseEvent, ReactNode, useState, createContext } from "react";
-// others
 import { nullPosition } from "./dataSources";
 import classes from "./ContextMenu.module.scss";
 

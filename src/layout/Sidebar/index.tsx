@@ -1,4 +1,3 @@
-// libs
 import {
   Drawer,
   IconButton,
@@ -8,11 +7,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-// components
-import Svg from "@/components/atoms/svg"; // others
-import LocaleButton from "@/components/atoms/LocaleButton";
-// others
-import classes from "./Sidebar.module.scss";
+import Svg from "@/components/atoms/svg"; import LocaleButton from "@/components/atoms/LocaleButton";
 
 type TProps = {
   sideBarVisible: boolean;

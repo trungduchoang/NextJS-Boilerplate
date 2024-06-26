@@ -1,7 +1,5 @@
-// libs
 import { GetStaticPropsContext } from "next";
 import { getI18nPaths, getI18nProps } from "@/lib/getStatic";
-// views
 import HomePage from "@/views/Home";
 
 export default function Home() {

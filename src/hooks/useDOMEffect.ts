@@ -1,4 +1,3 @@
-// libs
 import { useEffect, useState } from "react";
 
 /**

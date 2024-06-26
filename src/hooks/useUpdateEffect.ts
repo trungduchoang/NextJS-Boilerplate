@@ -1,4 +1,3 @@
-// libs import
 import { useEffect, useRef } from "react";
 
 /**

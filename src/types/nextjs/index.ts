@@ -1,6 +1,4 @@
-// libs
 import { GetStaticPropsContext } from "next";
-// types
 import { TReducerNames } from "@/redux/store";
 
 export type TPageProps = {

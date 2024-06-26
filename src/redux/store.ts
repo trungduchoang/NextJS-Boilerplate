@@ -1,10 +1,8 @@
-// libs
 import {
   configureStore as _configureStore,
   ThunkAction,
   Action,
 } from "@reduxjs/toolkit";
-// others
 import reducer from "./reducers";
 import { useMemo } from "react";
 

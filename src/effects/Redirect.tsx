@@ -1,7 +1,5 @@
-// libs
 import { useEffect } from "react";
 import languageDetector from "@/lib/languageDetector";
-// hooks
 import { useRouter } from "@/hooks/useRouter";
 
 type TProps = {

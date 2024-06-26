@@ -1,6 +1,4 @@
-// libs
 import languageDetector from "next-language-detector";
-// configs
 import { i18n } from "../../next-i18next.config";
 
 export default languageDetector({

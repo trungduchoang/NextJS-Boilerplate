@@ -1,4 +1,3 @@
-// libs
 import {
   Button,
   ListItemIcon,
@@ -7,11 +6,8 @@ import {
   MenuItem,
 } from "@mui/material";
 import { MouseEvent, useState } from "react";
-// components
 import Svg from "@/components/atoms/svg";
-// hooks
 import { useTranslation } from "@/hooks/useTranslation";
-// others
 import classes from "./UserDropdown.module.scss";
 
 /**

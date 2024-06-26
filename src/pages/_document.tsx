@@ -1,6 +1,4 @@
-// libs
 import Document, { Html, Head, Main, NextScript } from "next/document";
-// others
 import { i18n } from "../../next-i18next.config";
 
 class MyDocument extends Document {

@@ -1,4 +1,3 @@
-// libs
 import {
   ReactNode,
   createContext,
@@ -6,7 +5,6 @@ import {
   useEffect,
   useState,
 } from "react";
-// others
 import { STORAGE_KEYS } from "@/constants";
 import { cookie } from "@/utils/storage/cookie";
 

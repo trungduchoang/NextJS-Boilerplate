@@ -1,4 +1,3 @@
-// libs
 import { CssBaseline } from "@mui/material";
 
 /**

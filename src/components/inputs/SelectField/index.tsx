@@ -1,8 +1,6 @@
-// libs
 import { FocusEvent } from "react";
 import { SelectChangeEvent } from "@mui/material";
 import { Control, Controller } from "react-hook-form";
-// components
 import SelectWithLabel, { TSelectWithLabelProps } from "../SelectWithLabel";
 
 type TProps = Omit<TSelectWithLabelProps, "id" | "name"> & {

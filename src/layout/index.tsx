@@ -1,9 +1,6 @@
-// libs
 import { ReactNode, useState } from "react";
-// components
 import Sidebar from "./Sidebar";
 import Header from "./Header";
-// others
 import classes from "./GlobalLayout.module.scss";
 import { HEADER_HEIGHT } from "./variables";
 

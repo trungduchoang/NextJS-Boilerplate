@@ -1,7 +1,5 @@
-// libs
 import { GetStaticPropsContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-// configs
 import { i18n } from "../../next-i18next.config";
 
 /**
@@ -34,7 +32,6 @@ export const getI18nProps = async (
   ctx: GetStaticPropsContext,
   ns = ["common"],
 ) => {
-  // TODO: Check can ctx?.params?.locale be string[] for removing "as string" below
   const locale = ctx?.params?.locale || i18n.defaultLocale;
   return {
     ...(await serverSideTranslations(locale as string, ns)),

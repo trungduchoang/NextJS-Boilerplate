@@ -1,4 +1,3 @@
-// libs
 import { useConfirmDialog } from "react-mui-confirm";
 
 /**

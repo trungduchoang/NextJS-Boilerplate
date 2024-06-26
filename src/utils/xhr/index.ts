@@ -1,6 +1,4 @@
-// libs
 import { AxiosRequestConfig, Method } from "axios";
-// others
 import { AXIOS_INSTANCE } from "@/https/AxiosInstance";
 
 type TUrlBuilder<TUrlParams> = (props: TUrlParams) => string;
@@ -38,7 +36,7 @@ export function buildXHR<
   TResponse,
   TRequestBody,
   TRequestParams,
-  TUrlParams = {}, // TODO: Make TUrlParams cleaner and done in rx
+  TUrlParams = {},
 >(
   configs: TConfigs<TUrlParams>,
 ): (props?: {

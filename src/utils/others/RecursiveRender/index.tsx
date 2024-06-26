@@ -1,4 +1,3 @@
-// libs
 import { ReactNode } from "react";
 
 type TRecursiveRender = {

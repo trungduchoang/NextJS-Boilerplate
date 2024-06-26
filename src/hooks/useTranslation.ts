@@ -1,4 +1,3 @@
-// libs
 import { useTranslation as _useTranslation } from "next-i18next";
 
 export type TFunction = (key: string, params?: TObject) => string;

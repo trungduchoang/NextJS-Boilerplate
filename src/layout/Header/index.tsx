@@ -1,12 +1,8 @@
-// libs
 import { IconButton } from "@mui/material";
-// components
 import Svg from "@/components/atoms/svg";
 import UserArea from "./components/UserArea";
-// hooks
 import { useTranslation } from "@/hooks/useTranslation";
 import { useRouter } from "@/hooks/useRouter";
-// others
 import { HEADER_HEIGHT } from "../variables";
 import classes from "./Header.module.scss";
 

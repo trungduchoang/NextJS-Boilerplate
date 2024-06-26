@@ -1,7 +1,5 @@
-// libs
 import { FocusEvent, ChangeEvent } from "react";
 import { Control, Controller, useFormContext } from "react-hook-form";
-// components
 import CheckboxWithLabel, {
   TCheckboxWithLabelProps,
 } from "../CheckboxWithLabel";

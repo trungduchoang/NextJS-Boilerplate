@@ -1,13 +1,9 @@
-// libs
 import { ReactNode } from "react";
 import { Button } from "@mui/material";
-// hooks
 import { useAuth } from "@/providers/Auth";
 import { useRouter } from "@/hooks/useRouter";
 import { useTranslation } from "@/hooks/useTranslation";
-// components
 import UserDropdown from "../UserDropdown";
-// others
 import classes from "./UserArea.module.scss";
 
 /**

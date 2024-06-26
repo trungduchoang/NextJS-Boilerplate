@@ -1,7 +1,5 @@
-// libs
 import { ReactNode } from "react";
 import { Provider } from "react-redux";
-// types
 import { TStore } from "@/redux/store";
 
 type TProps = {

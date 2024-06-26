@@ -1,8 +1,5 @@
-// libs
 import { NextRouter, useRouter as _useRouter } from "next/router";
-// hooks
 import { useTranslation } from "./useTranslation";
-// others
 import { i18n } from "next-i18next.config";
 
 type TPushOptions = {

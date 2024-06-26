@@ -1,6 +1,4 @@
-// libs
 import { useState, useEffect } from "react";
-// others
 import { cookie } from "@/utils/storage/cookie";
 
 /**

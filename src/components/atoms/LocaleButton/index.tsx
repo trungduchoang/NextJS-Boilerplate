@@ -1,4 +1,3 @@
-// libs
 import {
   Button,
   ListItemIcon,
@@ -7,10 +6,8 @@ import {
   MenuItem,
 } from "@mui/material";
 import { MouseEvent, useState } from "react";
-// hooks
 import { useTranslation } from "@/hooks/useTranslation";
 import { useRouter } from "@/hooks/useRouter";
-// others
 import { i18n as i18nConfigs } from "../../../../next-i18next.config";
 import classes from "./LocaleButton.module.scss";
 import { getFlagByLanguage } from "./tools";

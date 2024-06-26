@@ -1,4 +1,3 @@
-// libs
 import {
   Control,
   FieldPath,
@@ -8,9 +7,7 @@ import {
   SetValueConfig,
   useFormContext,
 } from "react-hook-form";
-// types
 import { TAllFormValues } from "@/react-hook-form/types";
-// others
 import { focusErrorElement } from "@/utils/others";
 
 type TPages = keyof TAllFormValues;

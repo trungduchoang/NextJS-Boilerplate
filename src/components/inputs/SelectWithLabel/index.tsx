@@ -1,4 +1,3 @@
-// libs
 import { ForwardedRef, forwardRef, ReactNode } from "react";
 import {
   FormControl,
@@ -9,7 +8,6 @@ import {
   SelectProps,
 } from "@mui/material";
 import clsx from "clsx";
-// others
 import classes from "./SelectWithLabel.module.scss";
 
 export type TSelectWithLabelProps = {

@@ -30,8 +30,6 @@ export const theme = createTheme({
     MuiFormControl: {
       styleOverrides: {
         root: {
-          // width: 250,
-          // @better-do: Write "margin: 4" here will creating BUGs!!
           marginRight: 4,
           marginLeft: 4,
         },

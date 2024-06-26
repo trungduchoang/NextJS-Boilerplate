@@ -1,9 +1,6 @@
-// libs
 import clsx from "clsx";
 import { CSSProperties, ReactNode } from "react";
-// hooks
 import { useRouter } from "@/hooks/useRouter";
-// others
 import classes from "./Link.module.scss";
 
 /**

@@ -1,4 +1,3 @@
-// libs
 import { AxiosError, AxiosRequestConfig } from "axios";
 
 export type TParam = string | number;

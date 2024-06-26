@@ -1,7 +1,5 @@
-// libs
 import clsx from "clsx";
 import { CSSProperties } from "react";
-// others
 import classes from "./Spinner.module.scss";
 
 type PROPS = {

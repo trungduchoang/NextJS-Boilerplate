@@ -1,4 +1,3 @@
-// libs
 import { useState, useEffect } from "react";
 
 type PROPS = {

@@ -1,7 +1,5 @@
-// libs
 import { ReactNode } from "react";
 import Spinner from "../atoms/Spinner";
-// others
 import classes from "./Layout.module.scss";
 
 type TProps = {

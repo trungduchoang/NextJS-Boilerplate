@@ -1,10 +1,7 @@
-// libs
 import { ReactNode } from "react";
 import clsx from "clsx";
 import { Button as MuiButton, ButtonProps } from "@mui/material";
-// components
 import Spinner from "../Spinner";
-// others
 import classes from "./LoadingButton.module.scss";
 
 type PROPS = { loading?: boolean; label: ReactNode } & Omit<

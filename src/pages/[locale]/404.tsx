@@ -1,10 +1,6 @@
-// libs
 import { getI18nPaths, getI18nProps } from "@/lib/getStatic";
-// types
 import { TGetStaticProps, TPrefetchContext } from "@/types/nextjs";
-// hooks
 import { useTranslation } from "@/hooks/useTranslation";
-// others
 import { promiseAll } from "@/utils/others/promiseAll";
 import { REVALIDATE_TIME } from "@/configs";
 

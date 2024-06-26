@@ -1,4 +1,3 @@
-// libs
 import dayjs from "dayjs";
 
 type TAcceptedDate = string | Date;
