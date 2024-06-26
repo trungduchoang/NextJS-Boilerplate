@@ -5,12 +5,13 @@
   .childrenWrapper {
     height: 100vh;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
   .childrenInner {
     height: 100%;
-    width: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+    width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
