@@ -1,3 +1,4 @@
+import LocaleButton from "@/components/atoms/LocaleButton";
 import {
   Drawer,
   IconButton,
@@ -7,7 +8,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import Svg from "@/components/atoms/svg"; import LocaleButton from "@/components/atoms/LocaleButton";
+import classes from "./Sidebar.module.scss";
 
 type TProps = {
   sideBarVisible: boolean;
@@ -43,7 +44,7 @@ export default function Sidebar({ sideBarVisible, setSideBarVisible }: TProps) {
             edge="start"
             sx={{ mr: 0, color: "white", cursor: "pointer" }}
           >
-            <Svg type="x" />
+            [X]
           </IconButton>
         </div>
         <List>

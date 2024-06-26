@@ -1,5 +1,4 @@
 import { IconButton } from "@mui/material";
-import Svg from "@/components/atoms/svg";
 import UserArea from "./components/UserArea";
 import { useTranslation } from "@/hooks/useTranslation";
 import { useRouter } from "@/hooks/useRouter";
@@ -28,7 +27,7 @@ export default function Header({ setSideBarVisible }: TProps) {
           edge="start"
           className={classes["btn-menu"]}
         >
-          <Svg src="/svgs/icon-menu.svg" />
+          Menu
         </IconButton>
 
         <div

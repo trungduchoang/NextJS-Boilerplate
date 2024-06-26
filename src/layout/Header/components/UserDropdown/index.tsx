@@ -6,7 +6,6 @@ import {
   MenuItem,
 } from "@mui/material";
 import { MouseEvent, useState } from "react";
-import Svg from "@/components/atoms/svg";
 import { useTranslation } from "@/hooks/useTranslation";
 import classes from "./UserDropdown.module.scss";
 
@@ -34,9 +33,7 @@ export default function UserDropdown() {
         onClick={handleClick}
         style={{ color: "#fff", textTransform: "none", padding: "0 30px" }}
       >
-        <Svg type="user-rounded" className={classes.userIcon} />
         <span className={classes.username}> Username</span>
-        <Svg type="chevron-down" className={classes.arrow} />
       </Button>
       <Menu
         id="user-menu-menu"
@@ -48,15 +45,11 @@ export default function UserDropdown() {
         }}
       >
         <MenuItem onClick={handleClose}>
-          <ListItemIcon style={{ minWidth: 26 }}>
-            <Svg type="business-card" className={classes.accountInfo} />
-          </ListItemIcon>
+          <ListItemIcon style={{ minWidth: 26 }}></ListItemIcon>
           <ListItemText>{t("common:account_info")}</ListItemText>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <ListItemIcon style={{ minWidth: 26 }}>
-            <Svg type="log-out" className={classes.logout} />
-          </ListItemIcon>
+          <ListItemIcon style={{ minWidth: 26 }}></ListItemIcon>
           <ListItemText>{t("common:logout")}</ListItemText>
         </MenuItem>
       </Menu>
