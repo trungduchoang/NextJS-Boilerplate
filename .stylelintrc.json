@@ -26,6 +26,8 @@
     ],
     "font-family-no-missing-generic-family-keyword": null,
     "no-duplicate-selectors": null,
-    "selector-class-pattern": null
+    "selector-class-pattern": null,
+    "color-function-notation": null,
+    "alpha-value-notation": null
   }
 }

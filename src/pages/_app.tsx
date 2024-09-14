@@ -7,11 +7,14 @@ import { RecursiveRender } from "@/utils/others";
 import { AuthProvider, ReduxProvider } from "@/providers";
 import { theme } from "@/themes";
 import { useInitStore } from "@/redux/store";
+import { useInitNotification } from "@/utils/notify";
 import "@/styles/index.css";
 
 function App({ Component, pageProps }: AppProps) {
   // Init redux store
   const store = useInitStore(pageProps.pageData || {});
+  // Init Notification Instance
+  useInitNotification();
 
   return (
     <>

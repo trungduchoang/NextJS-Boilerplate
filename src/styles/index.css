@@ -1,1 +1,2 @@
-@import "./scroll-bar.css";
+@import url("./scroll-bar.css");
+@import url("rc-notification/assets/index.css");
